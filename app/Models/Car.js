@@ -12,6 +12,7 @@ constructor({make, model, year, price, description, imgUrl, miles}){
   this.id = generateId()
 }
 
+
 get Template(){
   return /*html*/`<div class="card col-2">
   <i class="fa fa-trash fa-2x text-danger d-flex align-self-end pointer" onclick="app.carsController.deleteCar('${this.id}')" aria-hidden="true"></i>
