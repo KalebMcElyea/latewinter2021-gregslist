@@ -24,7 +24,7 @@ export default class House{
             <h4 class="card-title">${this.bedrooms} ${this.bathrooms} - ${this.floorplan}</h4>
             <p class="card-text">${this.description}</p>
             <p>Year: ${this.year}</p>
-            <p>Price: ${this.price}</p>
+            <p>Price: ${this.price} </p>
             <button class="btn btn-success" onclick="app.houseController.bid('${this.id}')">Bid</button>
         </div>
       </div>`
