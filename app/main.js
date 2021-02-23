@@ -1,5 +1,6 @@
 import CarsController from "./Controllers/CarsController.js";
 import HouseController from "./Controllers/HouseController.js";
+import JobsController from "./Controllers/JobsController.js";
 import JobController from "./Controllers/JobsController.js";
 
 
@@ -10,7 +11,7 @@ class App {
 
   houseController = new HouseController();
 
-  jobController = new JobController()
+  jobsController = new JobsController();
 
 }
 

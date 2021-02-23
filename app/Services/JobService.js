@@ -1,33 +1,59 @@
-import Job from "../Models/Job.js"
-import {ProxyState} from "../AppState.js"
-
+import { ProxyState } from "../AppState.js";
+import Job from "../Models/Job.js";
+import { api } from "./AxiosService.js";
 
 class JobService{
-    constructor(){
-        console.log("Hello Job Service");
+
+ 
+  constructor(){
+    console.log("house service");
+    this.getJob()
+  }
+
+  async getJob() {
+    try {
+      const res = await api.get('jobs')
+      ProxyState.jobs = res.data.map(rawJobData => new Job(rawJobData))
+      console.log(ProxyState.jobs)
+    } catch (error) {
+      console.error(error)
     }
+  }
 
-
-    createJob(rawJob) {
-        let temp = ProxyState.job
-        temp.push(new Job(rawJob))
-        ProxyState.job = temp
+  async createJob(rawJob) {
+    try {
+      const res = await api.post('jobs', rawJob)
+      ProxyState.jobs = [ ...ProxyState.jobs, new Job(res.data)]
+    } catch (error) {
+      console.error(error)
+    }
     
-      }
 
-      bid(id) {
-          let temp = ProxyState.job
-          let job = temp.find(j=> j.id === id)
-          job.rate += 40
-          ProxyState.job = temp
-        }
+  }
 
-  deleteJob(id) {
-      let temp = ProxyState.job
-      let jobIndex = temp.findIndex(job =>  job.id == id)
-      temp.splice(jobIndex, 1)
-      ProxyState.job = temp
+  async bid(id) {
+    let jobs = ProxyState.jobs.find(j=> j.id === id)
+    jobs.price += 100
+    try {
+      const res = await api.put('jobs/' + id, jobs)
+      console.log(res.data)
+      // NOTE this is another opportunity to go and fetch the data and make sure it is the most up to date with our database
+      ProxyState.jobs = ProxyState.jobs
+    } catch (error) {
+      
     }
+  }
+
+  async deleteJob(id) {
+    try {
+      
+      const res = await api.delete(`jobs/` +id,)
+    
+      this.getJob()
+    } catch (error) {
+      console.error(error)
+    }
+  }
 }
 
 export const jobService = new JobService()

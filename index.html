@@ -47,10 +47,6 @@
                             placeholder="Description" aria-describedby="helpId">
                     </div>
                     <div class="form-group">
-                        <input type="number" name="miles" id="miles" class="form-control" placeholder="Miles"
-                            aria-describedby="helpId">
-                    </div>
-                    <div class="form-group">
                         <input type="text" name="imgUrl" id="imgUrl" class="form-control" placeholder="ImgUrl"
                             aria-describedby="helpId">
                     </div>
@@ -74,10 +70,7 @@
                         <input type="text" name="bathrooms" id="bathrooms" class="form-control" placeholder="Bathrooms"
                             aria-describedby="helpId">
                     </div>
-                    <div class="form-group">
-                        <input type="text" name="floorplan" id="floorplan" class="form-control" placeholder="Floorplan"
-                            aria-describedby="helpId">
-                    </div>
+
                     <div class="form-group">
                         <input type="text" name="imgUrl" id="imgUrl" class="form-control" placeholder="ImgUrl"
                             aria-describedby="helpId">
@@ -99,27 +92,23 @@
                 </form>
             </div>
         </div>
-        <div class="row" id="house"></div>
+        <div class="row" id="houses"></div>
         <hr>
 
         <div class="row">
             <div class="col">
                 <h1>Jobs</h1>
-                <form class="form-inline" onsubmit="app.jobController.createJobs(event)">
+                <form class="form-inline" onsubmit="app.jobsController.createJob(event)">
                     <div class="form-group">
                         <input type="text" name="company" id="company" class="form-control" placeholder="Company"
                             aria-describedby="helpId">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="jobtitle" id="jobtitle" class="form-control" placeholder="Jobtitle"
+                        <input type="text" name="jobTitle" id="jobTitle" class="form-control" placeholder="Jobtitle"
                             aria-describedby="helpId">
                     </div>
                     <div class="form-group">
                         <input type="number" name="hours" id="hours" class="form-control" placeholder="Hours"
-                            aria-describedby="helpId">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="imgUrl" id="imgUrl" class="form-control" placeholder="ImgUrl"
                             aria-describedby="helpId">
                     </div>
                     <div class="form-group">
@@ -134,7 +123,7 @@
                 </form>
             </div>
         </div>
-        <div class="row" id="job"></div>
+        <div class="row" id="jobs"></div>
 
     </main>
     <footer class="container-fluid bg-dark text-light">
@@ -145,6 +134,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="app/main.js" type="module"></script>
 </body>
 

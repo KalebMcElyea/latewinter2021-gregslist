@@ -1,50 +1,46 @@
 import { ProxyState } from "../AppState.js"
-import {jobService} from"../Services/JobService.js"
+import { jobService } from "../Services/jobService.js"
 
-
-function _draw(){
-    let job = ProxyState.job
+  function _draw(){
+    let jobs = ProxyState.jobs
     let template = ""
-    job.forEach(job=> template += job.Template)
-    // console.log(template)
-    document.getElementById('job').innerHTML = template
-    console.log(ProxyState.job)
-}
+    jobs.forEach(job=> template += job.Template)
+    document.getElementById('jobs').innerHTML = template
+    console.log(ProxyState.jobs)
+  }
 
+export default class JobsController{
+  constructor(){
+    console.log("jobs controller working")
+    console.log(ProxyState.jobs)
+    _draw()
+    ProxyState.on("jobs", _draw)
+  }
 
-export default class JobController{
-      constructor(){
-        console.log("job controller working")
-        console.log(ProxyState.job)
-        _draw()
-        ProxyState.on("job", _draw)
-      }
+  createJob(event){
+    event.preventDefault();
+    let form = event.target
+    console.log(form)
+    let rawJob = {
+      jobTitle: form.jobTitle.value,
+      company: form.company.value,
+      rate: form.rate.value,
+      hours: parseFloat(form.hours.value),
+      description: form.description.value,
+      
+    }
+    console.log(rawJob)
+    jobService.createJob(rawJob)
+  }
 
+  bid(id){
+    console.log('bidding ' + id)
+    jobService.bid(id)
+  }
 
-      createJobs(event){
-        event.preventDefault();
-        console.log('creating job')
-        let form = event.target
-        console.log(form)
-        let rawJob = {
-          company: form.company.value,
-          jobtitle: form.jobtitle.value,
-          hours: form.hours.value,
-          rate: parseFloat(form.rate.value),
-          imgUrl: form.imgUrl.value,
-          description: form.description.value,
-        }
-        console.log(rawJob)
-        jobService.createJob(rawJob)
-      }
-    
-      bid(id){
-        console.log('bidding ' + id)
-        jobService.bid(id)
-      }
-    
-      deleteJob(id){
-        console.log(id)
-        jobService.deleteJob(id)
-      }
+  deleteJob(id){
+    console.log(id)
+    jobService.deleteJob(id)
+  }
+
 }
