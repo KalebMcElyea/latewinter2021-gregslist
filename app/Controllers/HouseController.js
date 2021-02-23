@@ -26,10 +26,11 @@ export default class HouseController{
     let rawHouse = {
       bedrooms: form.bedrooms.value,
       bathrooms: form.bathrooms.value,
-      imgUrl: form.imgUrl.value,
-      year: form.year.value,
+      levels: form.levels.value,
       price: parseFloat(form.price.value),
       description: form.description.value,
+      imgUrl: form.imgUrl.value,
+      year: form.year.value,
     }
     console.log(rawHouse)
     houseService.createHouse(rawHouse)
