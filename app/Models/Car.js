@@ -11,12 +11,14 @@ export default class Car{
   }
   
   get Template(){
-    return /*html*/`<div class="card col-2">
+    return /*html*/`<div class="card col-2 m-4 ">
     <i class="fa fa-trash fa-2x text-danger d-flex align-self-end pointer" onclick="app.carsController.deleteCar('${this.id}')" aria-hidden="true"></i>
     <img class="card-img-top" src="${this.imgUrl}" alt="">
     <div class="card-body">
         <h4 class="card-title">${this.year} ${this.make} - ${this.model}</h4>
+        <hr>
         <p class="card-text">${this.description}</p>
+        <hr>
         <p>Price: ${this.price}</p>
         <button class="btn btn-success" onclick="app.carsController.bid('${this.id}')">Bid</button>
     </div>

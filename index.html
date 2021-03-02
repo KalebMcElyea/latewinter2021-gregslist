@@ -16,16 +16,17 @@
     <header>
         <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
             <a class="navbar-brand" href="#">
-                <img src="assets/img/logo.png" width="45" height="45" alt="" loading="lazy">
-                <span class="ml-2">latewinter21-gregslist</span>
+                <img src="https://indyme.com/wp-content/uploads/2020/11/shopping-cart-icon.png" width="45" height="45"
+                    alt="" loading="lazy">
+                <span class="ml-2">regslist</span>
             </a>
         </nav>
     </header>
     <main class="container-fluid">
         <div class="row">
-            <div class="col">
-                <h1>Cars</h1>
-                <form class="form-inline" onsubmit="app.carsController.createCar(event)">
+            <div class="col-12">
+                <h1 class="p-2">Cars</h1>
+                <form class="form-inline p-2" onsubmit="app.carsController.createCar(event)">
                     <div class="form-group">
                         <input type="text" name="make" id="make" class="form-control" placeholder="Make"
                             aria-describedby="helpId">
@@ -50,7 +51,7 @@
                         <input type="text" name="imgUrl" id="imgUrl" class="form-control" placeholder="ImgUrl"
                             aria-describedby="helpId">
                     </div>
-                    <button class="btn btn-dark" type="submit">Create</button>
+                    <button class="btn btn-dark m-1" type="submit">Create</button>
                 </form>
             </div>
         </div>
@@ -60,8 +61,8 @@
         <hr>
         <div class="row">
             <div class="col">
-                <h1>Houses</h1>
-                <form class="form-inline" onsubmit="app.houseController.createHouses(event)">
+                <h1 class="p-2">Houses</h1>
+                <form class="form-inline p-2" onsubmit="app.houseController.createHouses(event)">
                     <div class="form-group">
                         <input type="number" name="bedrooms" id="bedrooms" class="form-control" placeholder="Bedrooms"
                             aria-describedby="helpId">
@@ -71,7 +72,7 @@
                             placeholder="Bathrooms" aria-describedby="helpId">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="levels" id="levels" class="form-control" placeholder="Levels"
+                        <input type="number" name="levels" id="levels" class="form-control" placeholder="Levels"
                             aria-describedby="helpId">
                     </div>
                     <div class="form-group">
@@ -90,7 +91,7 @@
                         <input type="number" name="year" id="year" class="form-control" placeholder="Years"
                             aria-describedby="helpId">
                     </div>
-                    <button class="btn btn-dark" type="submit">Create</button>
+                    <button class="btn btn-dark m-1" type="submit">Create</button>
 
                 </form>
             </div>
@@ -100,8 +101,8 @@
 
         <div class="row">
             <div class="col">
-                <h1>Jobs</h1>
-                <form class="form-inline" onsubmit="app.jobsController.createJob(event)">
+                <h1 class="p-2">Jobs</h1>
+                <form class="form-inline p-2" onsubmit="app.jobsController.createJob(event)">
                     <div class="form-group">
                         <input type="text" name="company" id="company" class="form-control" placeholder="Company"
                             aria-describedby="helpId">
@@ -122,7 +123,7 @@
                         <input type="text" name="description" id="description" class="form-control"
                             placeholder="Description" aria-describedby="helpId">
                     </div>
-                    <button class="btn btn-dark" type="submit">Create</button>
+                    <button class="btn btn-dark m-1" type="submit">Create</button>
                 </form>
             </div>
         </div>
